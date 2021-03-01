@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>oop module &#8212; LA3 2/21/2020 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="LA3main module" href="LA3main.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-oop">
+<span id="oop-module"></span><h1>oop module<a class="headerlink" href="#module-oop" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="oop.PathFinder">
+<em class="property">class </em><code class="sig-prename descclassname">oop.</code><code class="sig-name descname">PathFinder</code><span class="sig-paren">(</span><em class="sig-param">path_list</em>, <em class="sig-param">bool_list</em>, <em class="sig-param">rows</em>, <em class="sig-param">cols</em><span class="sig-paren">)</span><a class="headerlink" href="#oop.PathFinder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="oop.PathFinder.find_longest_path_length">
+<code class="sig-name descname">find_longest_path_length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#oop.PathFinder.find_longest_path_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate through all the positions in the map (2-dimensional list);</p>
+<p>at each position, call the recursive method findPathLengthRecursive(), and at</p>
+<p>each position, update the maximum number of A’s in the path so far.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The maximum number of A’s in the path.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="oop.PathFinder.find_path_length_recursive">
+<code class="sig-name descname">find_path_length_recursive</code><span class="sig-paren">(</span><em class="sig-param">n</em>, <em class="sig-param">m</em><span class="sig-paren">)</span><a class="headerlink" href="#oop.PathFinder.find_path_length_recursive" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method uses recursion to check the cells to the left, right, above and</p>
+<p>below the current cell to determine if any of these is an ‘A’ that hasn’t yet</p>
+<p>been counted as part of the longest path of A’s.</p>
+<p>NOTE: Each ‘A’ in the path should be counted only once.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> – The current row.</p></li>
+<li><p><strong>m</strong> – The current column.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Return either zero or the current length signifying the number of connected A’s so far.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="oop.PathFinder.get_max_path">
+<code class="sig-name descname">get_max_path</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#oop.PathFinder.get_max_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns max_path data attribute to caller</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>max_path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="oop.PathFinder.reset_bool_list">
+<code class="sig-name descname">reset_bool_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#oop.PathFinder.reset_bool_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the boolean list to all false values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A 2d list with all false values and the same dimensions as the path list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="oop.find_max">
+<code class="sig-prename descclassname">oop.</code><code class="sig-name descname">find_max</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em>, <em class="sig-param">c=0</em>, <em class="sig-param">d=0</em><span class="sig-paren">)</span><a class="headerlink" href="#oop.find_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method determines which of the four values passed to it is the maximum.</p>
+<p>The four values passed represent the path lengths for the four paths of recursive calls from a specific character</p>
+<p>in the 2D list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> – The length returned from position [i-1, j].</p></li>
+<li><p><strong>b</strong> – The length returned from position [i+1, j].</p></li>
+<li><p><strong>c</strong> – The length returned from position [i, j-1].</p></li>
+<li><p><strong>d</strong> – The length returned from position [i, j+1].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns the Maximum of all lengths passed to it.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">LA3</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">LarabelRamses543_LA3</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="LA3main.html">LA3main module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">oop module</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">LarabelRamses543_LA3</a><ul>
+      <li>Previous: <a href="LA3main.html" title="previous chapter">LA3main module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Ramses Larabel.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/oop.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

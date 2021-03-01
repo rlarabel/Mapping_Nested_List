@@ -1,0 +1,13 @@
+/_templates/
+/_static/
+/_build/
+/venv/
+/conf.py
+/conf.rst
+/index.rst
+/LA3_Spring2020.pdf
+/make.bat
+/Makefile
+/modules.rst
+/oop.rst
+/Pseudocode for LA3.pdf
